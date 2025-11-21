@@ -5,6 +5,7 @@ import { XClock } from './components/apps/XClock';
 import { XLogo } from './components/apps/XLogo';
 import { XMan } from './components/apps/XMan';
 import { XCalc } from './components/apps/XCalc';
+import { XEyes } from './components/apps/XEyes';
 import { AppType, WindowState } from './types';
 import { GoogleGenAI } from '@google/genai';
 
@@ -53,6 +54,17 @@ const INITIAL_WINDOWS: WindowState[] = [
         height: 500,
         zIndex: 4,
         isMinimized: false
+    },
+    {
+        id: 'win-5',
+        type: AppType.XEYES,
+        title: 'xeyes',
+        x: 650,
+        y: 300,
+        width: 300,
+        height: 200,
+        zIndex: 5,
+        isMinimized: false
     }
 ];
 
@@ -89,14 +101,26 @@ const App: React.FC = () => {
 
     const spawnApp = (type: AppType) => {
         const id = `win-${Date.now()}`;
+        let width = 300;
+        let height = 300;
+
+        switch (type) {
+            case AppType.XTERM: width = 500; height = 350; break;
+            case AppType.XCALC: width = 250; height = 350; break;
+            case AppType.XCLOCK: width = 150; height = 150; break;
+            case AppType.XEYES: width = 300; height = 175; break;
+            case AppType.XLOGO: width = 200; height = 200; break;
+            case AppType.XMAN: width = 400; height = 500; break;
+        }
+
         const newWindow: WindowState = {
             id,
             type,
             title: type.toLowerCase(),
             x: 100 + (windows.length * 20),
             y: 100 + (windows.length * 20),
-            width: type === AppType.XTERM ? 500 : type === AppType.XCALC ? 250 : 300,
-            height: type === AppType.XTERM ? 350 : type === AppType.XCALC ? 350 : 300,
+            width,
+            height,
             zIndex: nextZIndex,
             isMinimized: false
         };
@@ -122,6 +146,7 @@ const App: React.FC = () => {
             case AppType.XLOGO: return <XLogo />;
             case AppType.XMAN: return <XMan />;
             case AppType.XCALC: return <XCalc />;
+            case AppType.XEYES: return <XEyes />;
             default: return <div className="p-4">Not implemented</div>;
         }
     };
