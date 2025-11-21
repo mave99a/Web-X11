@@ -6,6 +6,7 @@ import { XLogo } from './components/apps/XLogo';
 import { XMan } from './components/apps/XMan';
 import { XCalc } from './components/apps/XCalc';
 import { XEyes } from './components/apps/XEyes';
+import { XChat } from './components/apps/XChat';
 import { AppType, WindowState } from './types';
 import { GoogleGenAI } from '@google/genai';
 
@@ -65,12 +66,23 @@ const INITIAL_WINDOWS: WindowState[] = [
         height: 200,
         zIndex: 5,
         isMinimized: false
+    },
+    {
+        id: 'win-6',
+        type: AppType.XCHAT,
+        title: 'xchat',
+        x: 550,
+        y: 250,
+        width: 350,
+        height: 450,
+        zIndex: 6,
+        isMinimized: false
     }
 ];
 
 const App: React.FC = () => {
     const [windows, setWindows] = useState<WindowState[]>(INITIAL_WINDOWS);
-    const [activeWindowId, setActiveWindowId] = useState<string>('win-2');
+    const [activeWindowId, setActiveWindowId] = useState<string>('win-6');
     const [nextZIndex, setNextZIndex] = useState(10);
     const [contextMenu, setContextMenu] = useState<{x: number, y: number} | null>(null);
     const [apiKeySet, setApiKeySet] = useState(false);
@@ -111,6 +123,7 @@ const App: React.FC = () => {
             case AppType.XEYES: width = 300; height = 175; break;
             case AppType.XLOGO: width = 200; height = 200; break;
             case AppType.XMAN: width = 400; height = 500; break;
+            case AppType.XCHAT: width = 350; height = 450; break;
         }
 
         const newWindow: WindowState = {
@@ -147,6 +160,7 @@ const App: React.FC = () => {
             case AppType.XMAN: return <XMan />;
             case AppType.XCALC: return <XCalc />;
             case AppType.XEYES: return <XEyes />;
+            case AppType.XCHAT: return <XChat />;
             default: return <div className="p-4">Not implemented</div>;
         }
     };

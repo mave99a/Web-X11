@@ -4,7 +4,8 @@ export enum AppType {
     XLOGO = 'XLOGO',
     XMAN = 'XMAN',
     XCALC = 'XCALC',
-    XEYES = 'XEYES'
+    XEYES = 'XEYES',
+    XCHAT = 'XCHAT'
 }
 
 export interface WindowState {
