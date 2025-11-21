@@ -1,0 +1,5 @@
+{
+  "name": "WebX11 Simulator",
+  "description": "A functional retro X Window System simulator featuring draggable windows, a Gemini-powered terminal (xterm), manual pages (xman), and classic X11 apps like xclock and xlogo.",
+  "requestFramePermissions": []
+}

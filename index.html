@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebX11 Simulator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom cursor for that authentic X11 feel */
+        body {
+            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAAAAAAKAAAAAQAAAAEAAAAYOpQ8AAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJFhQXE/56/EAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAOUlEQVQ4y6WTwQkAIAwD+/ofrVP4011E0EFEB8F1mD60wcYakoAkCT52swnA5v0B4J90AAgC71tQAwVe8hO1v6q+AAAAAElFTkSuQmCC'), auto;
+        }
+        .x-cursor-text {
+            cursor: text;
+        }
+        .x-cursor-pointer {
+            cursor: pointer;
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#2e5f5f] overflow-hidden select-none h-screen w-screen">
+    <div id="root"></div>
+  </body>
+</html>
